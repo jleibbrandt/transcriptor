@@ -1,0 +1,35 @@
+{
+  "appId": "com.transcriptor.app",
+  "productName": "Transcriptor",
+  "directories": {
+    "output": "release/full"
+  },
+  "files": [
+    "dist/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "python/dist/whisper-worker/",
+      "to": "whisper-worker",
+      "filter": ["**/*"]
+    },
+    {
+      "from": "vendor/ffmpeg/",
+      "to": "ffmpeg",
+      "filter": ["ffmpeg.exe"]
+    }
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "assets/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "artifactName": "Transcriptor-${version}-Setup.exe",
+    "useZip": true
+  }
+}

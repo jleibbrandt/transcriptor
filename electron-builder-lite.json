@@ -1,0 +1,29 @@
+{
+  "appId": "com.transcriptor.app",
+  "productName": "Transcriptor",
+  "directories": {
+    "output": "release/lite"
+  },
+  "files": [
+    "dist/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "python/whisper_worker.py",
+      "to": "worker/whisper_worker.py"
+    }
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "assets/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "artifactName": "Transcriptor-${version}-Lite-Setup.exe",
+    "include": "installer/installer.nsh"
+  }
+}
